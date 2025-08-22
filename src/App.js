@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import { translations } from './translations';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [language, setLanguage] = useState('es');
+
+  const t = translations[language];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,14 +52,28 @@ function App() {
             </a>
           </div>
           <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
-            <li><a href="#home" className={`nav-link ${activeSection === 'home' ? 'active' : ''}`} onClick={() => scrollToSection('home')}>Home</a></li>
-            <li><a href="#music" className={`nav-link ${activeSection === 'music' ? 'active' : ''}`} onClick={() => scrollToSection('music')}>Music</a></li>
-            <li><a href="#about" className={`nav-link ${activeSection === 'about' ? 'active' : ''}`} onClick={() => scrollToSection('about')}>About</a></li>
-            <li><a href="#gallery" className={`nav-link ${activeSection === 'gallery' ? 'active' : ''}`} onClick={() => scrollToSection('gallery')}>Gallery</a></li>
-            <li><a href="#tour" className={`nav-link ${activeSection === 'tour' ? 'active' : ''}`} onClick={() => scrollToSection('tour')}>Tour</a></li>
-            <li><a href="#shop" className={`nav-link ${activeSection === 'shop' ? 'active' : ''}`} onClick={() => scrollToSection('shop')}>Shop</a></li>
-            <li><a href="#contact" className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`} onClick={() => scrollToSection('contact')}>Contact</a></li>
+            <li><a href="#home" className={`nav-link ${activeSection === 'home' ? 'active' : ''}`} onClick={() => scrollToSection('home')}>{t.nav.home}</a></li>
+            <li><a href="#music" className={`nav-link ${activeSection === 'music' ? 'active' : ''}`} onClick={() => scrollToSection('music')}>{t.nav.music}</a></li>
+            <li><a href="#about" className={`nav-link ${activeSection === 'about' ? 'active' : ''}`} onClick={() => scrollToSection('about')}>{t.nav.about}</a></li>
+            <li><a href="#gallery" className={`nav-link ${activeSection === 'gallery' ? 'active' : ''}`} onClick={() => scrollToSection('gallery')}>{t.nav.gallery}</a></li>
+            <li><a href="#tour" className={`nav-link ${activeSection === 'tour' ? 'active' : ''}`} onClick={() => scrollToSection('tour')}>{t.nav.tour}</a></li>
+            <li><a href="#shop" className={`nav-link ${activeSection === 'shop' ? 'active' : ''}`} onClick={() => scrollToSection('shop')}>{t.nav.shop}</a></li>
+            <li><a href="#contact" className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`} onClick={() => scrollToSection('contact')}>{t.nav.contact}</a></li>
           </ul>
+          <div className="language-selector">
+            <button 
+              className={`lang-btn ${language === 'es' ? 'active' : ''}`}
+              onClick={() => setLanguage('es')}
+            >
+              ES
+            </button>
+            <button 
+              className={`lang-btn ${language === 'en' ? 'active' : ''}`}
+              onClick={() => setLanguage('en')}
+            >
+              EN
+            </button>
+          </div>
           <div className={`menu-toggle ${isMenuOpen ? 'active' : ''}`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <span className="bar"></span>
             <span className="bar"></span>
@@ -71,15 +89,15 @@ function App() {
           <div className="particles"></div>
         </div>
         <div className="hero-content">
-          <img src="/Diseño sin título (6).png" alt="Jonathan Pérez" className="hero-logo-image" />
-          <p className="hero-subtitle">MÚSICO • COMPOSITOR • ARTISTA</p>
+          <img src="/Diseño sin título3.png" alt="Jonathan Pérez" className="hero-logo-image" />
+          <p className="hero-subtitle">{t.hero.subtitle}</p>
           <div className="hero-cta">
-            <a href="#music" className="btn btn-primary" onClick={() => scrollToSection('music')}>Escuchar Música</a>
-            <a href="#contact" className="btn btn-secondary" onClick={() => scrollToSection('contact')}>Contacto</a>
+            <a href="#music" className="btn btn-primary" onClick={() => scrollToSection('music')}>{t.hero.listenMusic}</a>
+            <a href="#contact" className="btn btn-secondary" onClick={() => scrollToSection('contact')}>{t.hero.contact}</a>
           </div>
         </div>
         <div className="scroll-indicator">
-          <span>Scroll Down</span>
+          <span>{t.hero.scrollDown}</span>
           <i className="fas fa-chevron-down"></i>
         </div>
       </section>
@@ -87,19 +105,19 @@ function App() {
       {/* Music Section */}
       <section id="music" className="section music-section">
         <div className="container">
-          <h2 className="section-title">Música</h2>
+          <h2 className="section-title">{t.music.title}</h2>
           <div className="coming-soon-container">
             <div className="coming-soon-content">
               <div className="coming-soon-badge">
                 <i className="fas fa-music badge-icon"></i>
-                Próximamente
+                {t.music.comingSoon}
               </div>
-              <h3>Nuevo Álbum en Camino</h3>
-              <p>En este momento estoy trabajando en mi próximo álbum que promete ser una experiencia musical única.</p>
-              <p className="highlight-text">¡Mantente atento a las actualizaciones!</p>
+              <h3>{t.music.newAlbum}</h3>
+              <p>{t.music.workingOn}</p>
+              <p className="highlight-text">{t.music.stayTuned}</p>
               
               <div className="streaming-platforms">
-                <h4>Disponible próximamente en:</h4>
+                <h4>{t.music.availableSoon}</h4>
                 <div className="streaming-links">
                   <a href="#" className="streaming-link">
                     <i className="fab fa-spotify"></i>
@@ -136,7 +154,7 @@ function App() {
       {/* About Section */}
       <section id="about" className="section about-section">
         <div className="container">
-          <h2 className="section-title">Sobre Mí</h2>
+          <h2 className="section-title">{t.about.title}</h2>
           <div className="about-grid">
             <div className="about-image-container">
               <div className="about-image">
@@ -144,16 +162,16 @@ function App() {
               </div>
               <div className="about-quote">
                 <blockquote>
-                  "La música es el lenguaje universal que conecta almas y trasciende fronteras."
+                  "{t.about.quote}"
                 </blockquote>
               </div>
             </div>
             
             <div className="about-bio">
-              <h3>Jonathan Pérez</h3>
-              <h4>Músico y Compositor</h4>
-              <p>Con más de una década de experiencia en la industria musical, he dedicado mi vida a crear melodías que toquen el corazón y letras que inspiren.</p>
-              <p>Mi música fusiona elementos tradicionales con sonidos contemporáneos, creando un estilo único que resuena con audiencias de todas las edades.</p>
+              <h3>{t.about.name}</h3>
+              <h4>{t.about.role}</h4>
+              <p>{t.about.bio1}</p>
+              <p>{t.about.bio2}</p>
               
               <div className="skills-container">
                 <div className="skill-item">
@@ -161,7 +179,7 @@ function App() {
                     <i className="fas fa-guitar"></i>
                   </div>
                   <div className="skill-info">
-                    <h5>Guitarra</h5>
+                    <h5>{t.about.guitar}</h5>
                     <div className="skill-bar">
                       <div className="skill-level" style={{width: '95%'}}></div>
                     </div>
@@ -173,7 +191,7 @@ function App() {
                     <i className="fas fa-microphone"></i>
                   </div>
                   <div className="skill-info">
-                    <h5>Vocal</h5>
+                    <h5>{t.about.vocal}</h5>
                     <div className="skill-bar">
                       <div className="skill-level" style={{width: '90%'}}></div>
                     </div>
@@ -185,7 +203,7 @@ function App() {
                     <i className="fas fa-music"></i>
                   </div>
                   <div className="skill-info">
-                    <h5>Composición</h5>
+                    <h5>{t.about.composition}</h5>
                     <div className="skill-bar">
                       <div className="skill-level" style={{width: '88%'}}></div>
                     </div>
@@ -218,20 +236,20 @@ function App() {
       <section id="gallery" className="section gallery-section">
         <div className="container">
           <div className="gallery-header">
-            <h2 className="section-title">Galería</h2>
+            <h2 className="section-title">{t.gallery.title}</h2>
             <p className="gallery-intro">
-              Una colección de momentos especiales, sesiones de estudio y presentaciones en vivo.
+              {t.gallery.intro}
             </p>
           </div>
           
           <div className="coming-soon-gallery">
             {[
-              { icon: 'fas fa-camera', title: 'Sesiones de Estudio', desc: 'Detrás de cámaras en el proceso creativo' },
-              { icon: 'fas fa-microphone-alt', title: 'Conciertos en Vivo', desc: 'Momentos únicos con el público' },
-              { icon: 'fas fa-headphones', title: 'Proceso Creativo', desc: 'El arte de crear música' },
-              { icon: 'fas fa-guitar', title: 'Instrumentos', desc: 'Las herramientas de mi arte' },
-              { icon: 'fas fa-users', title: 'Colaboraciones', desc: 'Trabajando con otros artistas' },
-              { icon: 'fas fa-star', title: 'Momentos Especiales', desc: 'Recuerdos inolvidables' }
+              { icon: 'fas fa-camera', title: t.gallery.studioSessions, desc: t.gallery.studioDesc },
+              { icon: 'fas fa-microphone-alt', title: t.gallery.liveConcerts, desc: t.gallery.liveDesc },
+              { icon: 'fas fa-headphones', title: t.gallery.creativeProcess, desc: t.gallery.creativeDesc },
+              { icon: 'fas fa-guitar', title: t.gallery.instruments, desc: t.gallery.instrumentsDesc },
+              { icon: 'fas fa-users', title: t.gallery.collaborations, desc: t.gallery.collaborationsDesc },
+              { icon: 'fas fa-star', title: t.gallery.specialMoments, desc: t.gallery.specialDesc }
             ].map((item, index) => (
               <div key={index} className="coming-soon-item">
                 <div className="coming-soon-icon">
@@ -240,16 +258,16 @@ function App() {
                 <div className="coming-soon-info">
                   <h4>{item.title}</h4>
                   <p>{item.desc}</p>
-                  <span className="coming-soon-badge">Próximamente</span>
+                  <span className="coming-soon-badge">{t.music.comingSoon}</span>
                 </div>
               </div>
             ))}
           </div>
           
           <div className="gallery-cta">
-            <h3>¡Sígueme en redes sociales!</h3>
-            <p>No te pierdas las últimas fotos y videos. Sígueme en mis redes sociales para contenido exclusivo y actualizaciones diarias.</p>
-            <a href="#contact" className="btn btn-primary" onClick={() => scrollToSection('contact')}>Conectar</a>
+            <h3>{t.gallery.followSocial}</h3>
+            <p>{t.gallery.socialDesc}</p>
+            <a href="#contact" className="btn btn-primary" onClick={() => scrollToSection('contact')}>{t.gallery.connect}</a>
           </div>
         </div>
       </section>
@@ -258,7 +276,7 @@ function App() {
       <section id="tour" className="section tour-section">
         <div className="container">
           <div className="tour-header">
-            <h2 className="section-title">Tour</h2>
+            <h2 className="section-title">{t.tour.title}</h2>
           </div>
           
           <div className="tour-content">
@@ -267,20 +285,20 @@ function App() {
                 <i className="fas fa-calendar-alt"></i>
               </div>
               <div className="announcement-content">
-                <h3>Próximas Fechas</h3>
-                <p>Estoy emocionado de anunciar que pronto estaré de gira. Mantente atento para conocer las fechas y ciudades donde nos encontraremos.</p>
+                <h3>{t.tour.upcomingDates}</h3>
+                <p>{t.tour.tourAnnouncement}</p>
               </div>
             </div>
             
             <div className="tour-form-container">
               <div className="tour-form">
-                <h3>Notificaciones de Tour</h3>
-                <p>Sé el primero en enterarte de las nuevas fechas</p>
+                <h3>{t.tour.notifications}</h3>
+                <p>{t.tour.firstToKnow}</p>
                 <form onSubmit={handleSubmit}>
                   <div className="form-group">
                     <input 
                       type="email" 
-                      placeholder="Tu email" 
+                      placeholder={t.tour.emailPlaceholder} 
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                       required 
@@ -288,12 +306,12 @@ function App() {
                   </div>
                   <button type="submit" className="btn btn-primary">
                     <i className="fas fa-bell"></i>
-                    Notificarme
+                    {t.tour.notifyMe}
                   </button>
                 </form>
                 {isSubmitted && (
                   <div className="success-message">
-                    ¡Gracias! Te notificaremos sobre las nuevas fechas.
+                    {t.tour.thankYou}
                   </div>
                 )}
               </div>
@@ -306,20 +324,20 @@ function App() {
       <section id="shop" className="section shop-section">
         <div className="container">
           <div className="shop-header">
-            <h2 className="section-title">Tienda</h2>
+            <h2 className="section-title">{t.shop.title}</h2>
             <p className="shop-intro">
-              Próximamente podrás encontrar merchandise oficial, música física y productos exclusivos.
+              {t.shop.intro}
             </p>
           </div>
           
-          <h3 className="upcoming-title">Productos Próximamente</h3>
+          <h3 className="upcoming-title">{t.shop.upcomingProducts}</h3>
           
           <div className="products-grid">
             {[
-              { icon: 'fas fa-tshirt', category: 'Ropa', title: 'Camisetas Oficiales', desc: 'Diseños únicos y exclusivos' },
-              { icon: 'fas fa-compact-disc', category: 'Música', title: 'Álbumes Físicos', desc: 'Ediciones limitadas en vinilo y CD' },
-              { icon: 'fas fa-mug-hot', category: 'Accesorios', title: 'Tazas y Más', desc: 'Productos para el día a día' },
-              { icon: 'fas fa-guitar', category: 'Instrumentos', title: 'Picks Personalizados', desc: 'Púas con mi firma' }
+              { icon: 'fas fa-tshirt', category: t.shop.clothing, title: t.shop.officialShirts, desc: t.shop.uniqueDesigns },
+              { icon: 'fas fa-compact-disc', category: t.shop.music, title: t.shop.physicalAlbums, desc: t.shop.limitedEditions },
+              { icon: 'fas fa-mug-hot', category: t.shop.accessories, title: t.shop.mugsMore, desc: t.shop.dailyProducts },
+              { icon: 'fas fa-guitar', category: t.shop.instruments, title: t.shop.customPicks, desc: t.shop.signaturePicks }
             ].map((product, index) => (
               <div key={index} className="product-card">
                 <div className="product-icon">
@@ -329,7 +347,7 @@ function App() {
                   <span className="product-category">{product.category}</span>
                   <h4>{product.title}</h4>
                   <p>{product.desc}</p>
-                  <span className="product-coming-soon">Próximamente</span>
+                  <span className="product-coming-soon">{t.music.comingSoon}</span>
                 </div>
               </div>
             ))}
@@ -341,26 +359,26 @@ function App() {
                 <i className="fas fa-shopping-bag"></i>
               </div>
               <div className="notification-text">
-                <h3>¡Sé el primero en comprar!</h3>
-                <p>Regístrate para recibir notificaciones cuando la tienda esté disponible y obtén descuentos exclusivos.</p>
+                <h3>{t.shop.firstToBuy}</h3>
+                <p>{t.shop.registerNotifications}</p>
                 <form onSubmit={handleSubmit}>
                   <div className="form-input-group">
                     <input 
                       type="email" 
-                      placeholder="Tu email" 
+                      placeholder={t.tour.emailPlaceholder} 
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                       required 
                     />
                     <button type="submit" className="btn">
                       <i className="fas fa-envelope"></i>
-                      Notificarme
+                      {t.tour.notifyMe}
                     </button>
                   </div>
                 </form>
                 {isSubmitted && (
                   <div className="success-message">
-                    ¡Perfecto! Te avisaremos cuando esté lista.
+                    {t.shop.perfectNotify}
                   </div>
                 )}
               </div>
@@ -372,12 +390,12 @@ function App() {
       {/* Contact Section */}
       <section id="contact" className="section contact-section">
         <div className="container">
-          <h2 className="section-title">Contacto</h2>
+          <h2 className="section-title">{t.contact.title}</h2>
           
           <div className="contact-grid">
             <div className="contact-card">
-              <h3>Conectemos</h3>
-              <p>¿Tienes una propuesta, quieres colaborar o simplemente saludar? Me encantaría escucharte.</p>
+              <h3>{t.contact.letsConnect}</h3>
+              <p>{t.contact.contactDesc}</p>
               
               <div className="contact-details">
                 <div className="contact-item">
@@ -385,7 +403,7 @@ function App() {
                     <i className="fas fa-envelope"></i>
                   </div>
                   <div>
-                    <h4>Email</h4>
+                    <h4>{t.contact.email}</h4>
                     <span>jonaperez.music@gmail.com</span>
                   </div>
                 </div>
@@ -395,7 +413,7 @@ function App() {
                     <i className="fas fa-phone"></i>
                   </div>
                   <div>
-                    <h4>Teléfono</h4>
+                    <h4>{t.contact.phone}</h4>
                     <span>+598 92 934 394</span>
                   </div>
                 </div>
@@ -405,14 +423,14 @@ function App() {
                     <i className="fas fa-map-marker-alt"></i>
                   </div>
                   <div>
-                    <h4>Ubicación</h4>
+                    <h4>{t.contact.location}</h4>
                     <span>Canelones, Uruguay</span>
                   </div>
                 </div>
               </div>
               
               <div className="social-links-contact">
-                <h4>Sígueme</h4>
+                <h4>{t.contact.followMe}</h4>
                 <div className="social-icons">
                   <a href="#" className="social-icon">
                     <i className="fab fa-instagram"></i>
@@ -432,19 +450,19 @@ function App() {
             
             <div className="contact-form-container">
               <div className="contact-form-card">
-                <h3>Envíame un Mensaje</h3>
+                <h3>{t.contact.sendMessage}</h3>
                 
                 {isSubmitted && (
                   <div className="form-message success">
                     <i className="fas fa-check-circle message-icon"></i>
-                    ¡Mensaje enviado! Te responderé pronto.
+                    {t.contact.messageSent}
                   </div>
                 )}
                 
                 <form onSubmit={handleSubmit}>
                   <div className="form-row">
                     <div className="form-group">
-                      <label>Nombre</label>
+                      <label>{t.contact.name}</label>
                       <input 
                         type="text" 
                         value={formData.name}
@@ -453,7 +471,7 @@ function App() {
                       />
                     </div>
                     <div className="form-group">
-                      <label>Email</label>
+                      <label>{t.contact.email}</label>
                       <input 
                         type="email" 
                         value={formData.email}
@@ -464,7 +482,7 @@ function App() {
                   </div>
                   
                   <div className="form-group">
-                    <label>Mensaje</label>
+                    <label>{t.contact.message}</label>
                     <textarea 
                       rows="5" 
                       value={formData.message}
@@ -475,7 +493,7 @@ function App() {
                   
                   <button type="submit" className="btn btn-primary">
                     <i className="fas fa-paper-plane"></i>
-                    Enviar Mensaje
+                    {t.contact.sendBtn}
                   </button>
                 </form>
               </div>
@@ -500,10 +518,9 @@ function App() {
               <div className="footer-brand">
                 <img src="/WhatsApp Image 2025-06-06 at 23.21.22_6dafd632.jpg" alt="Jonathan Pérez" className="footer-logo-img" />
                 <h2 className="footer-title">Jonathan Pérez</h2>
-                <p className="footer-tagline">Músico • Compositor • Artista</p>
+                <p className="footer-tagline">{t.footer.tagline}</p>
                 <p className="footer-description">
-                  Creando música que conecta corazones y trasciende fronteras. 
-                  Únete a este viaje musical extraordinario.
+                  {t.footer.description}
                 </p>
               </div>
               
@@ -511,27 +528,27 @@ function App() {
                 <div className="newsletter-icon">
                   <i className="fas fa-music"></i>
                 </div>
-                <h3>Mantente Conectado</h3>
-                <p>Sé el primero en conocer mis nuevos lanzamientos y conciertos</p>
+                <h3>{t.footer.stayConnected}</h3>
+                <p>{t.footer.firstToKnow}</p>
                 <form className="epic-subscribe-form" onSubmit={handleSubmit}>
                   <div className="input-wrapper">
                     <input 
                       type="email" 
-                      placeholder="Tu email" 
+                      placeholder={t.tour.emailPlaceholder} 
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                       required 
                     />
                     <button type="submit">
                       <i className="fas fa-paper-plane"></i>
-                      Suscribirse
+                      {t.footer.subscribe}
                     </button>
                   </div>
                 </form>
                 {isSubmitted && (
                   <div className="epic-success">
                     <i className="fas fa-check-circle"></i>
-                    ¡Bienvenido a la familia musical!
+                    {t.footer.welcomeFamily}
                   </div>
                 )}
               </div>
@@ -545,22 +562,22 @@ function App() {
               <div className="footer-section">
                 <h3>
                   <i className="fas fa-compass"></i>
-                  Navegación
+                  {t.footer.navigation}
                 </h3>
                 <ul className="footer-links">
-                  <li><a href="#home" onClick={() => scrollToSection('home')}><i className="fas fa-home"></i>Inicio</a></li>
-                  <li><a href="#music" onClick={() => scrollToSection('music')}><i className="fas fa-music"></i>Música</a></li>
-                  <li><a href="#about" onClick={() => scrollToSection('about')}><i className="fas fa-user"></i>Sobre Mí</a></li>
-                  <li><a href="#gallery" onClick={() => scrollToSection('gallery')}><i className="fas fa-images"></i>Galería</a></li>
-                  <li><a href="#tour" onClick={() => scrollToSection('tour')}><i className="fas fa-calendar"></i>Tour</a></li>
-                  <li><a href="#contact" onClick={() => scrollToSection('contact')}><i className="fas fa-envelope"></i>Contacto</a></li>
+                  <li><a href="#home" onClick={() => scrollToSection('home')}><i className="fas fa-home"></i>{t.footer.home}</a></li>
+                  <li><a href="#music" onClick={() => scrollToSection('music')}><i className="fas fa-music"></i>{t.nav.music}</a></li>
+                  <li><a href="#about" onClick={() => scrollToSection('about')}><i className="fas fa-user"></i>{t.nav.about}</a></li>
+                  <li><a href="#gallery" onClick={() => scrollToSection('gallery')}><i className="fas fa-images"></i>{t.nav.gallery}</a></li>
+                  <li><a href="#tour" onClick={() => scrollToSection('tour')}><i className="fas fa-calendar"></i>{t.nav.tour}</a></li>
+                  <li><a href="#contact" onClick={() => scrollToSection('contact')}><i className="fas fa-envelope"></i>{t.nav.contact}</a></li>
                 </ul>
               </div>
               
               <div className="footer-section">
                 <h3>
                   <i className="fas fa-share-alt"></i>
-                  Redes Sociales
+                  {t.footer.socialNetworks}
                 </h3>
                 <div className="epic-social-grid">
                   <a href="#" className="epic-social-link instagram">
@@ -593,7 +610,7 @@ function App() {
               <div className="footer-section">
                 <h3>
                   <i className="fas fa-map-marker-alt"></i>
-                  Contacto
+                  {t.contact.title}
                 </h3>
                 <div className="contact-items">
                   <div className="contact-item-epic">
@@ -601,7 +618,7 @@ function App() {
                       <i className="fas fa-envelope"></i>
                     </div>
                     <div className="contact-details">
-                      <span className="contact-label">Email</span>
+                      <span className="contact-label">{t.contact.email}</span>
                       <span className="contact-value">jonaperez.music@gmail.com</span>
                     </div>
                   </div>
@@ -610,7 +627,7 @@ function App() {
                       <i className="fas fa-phone"></i>
                     </div>
                     <div className="contact-details">
-                      <span className="contact-label">Teléfono</span>
+                      <span className="contact-label">{t.contact.phone}</span>
                       <span className="contact-value">+598 92 934 394</span>
                     </div>
                   </div>
@@ -619,7 +636,7 @@ function App() {
                       <i className="fas fa-map-marker-alt"></i>
                     </div>
                     <div className="contact-details">
-                      <span className="contact-label">Ubicación</span>
+                      <span className="contact-label">{t.contact.location}</span>
                       <span className="contact-value">Canelones, Uruguay</span>
                     </div>
                   </div>
@@ -629,7 +646,7 @@ function App() {
               <div className="footer-section">
                 <h3>
                   <i className="fas fa-headphones"></i>
-                  Streaming
+                  {t.footer.streaming}
                 </h3>
                 <div className="streaming-platforms-footer">
                   <a href="#" className="streaming-item">
@@ -658,20 +675,20 @@ function App() {
           <div className="container">
             <div className="footer-bottom-content">
               <div className="copyright-epic">
-                <p>&copy; 2025 Jonathan Pérez. Todos los derechos reservados.</p>
+                <p>{t.footer.copyright}</p>
                 <div className="legal-links">
-                  <a href="#">Política de Privacidad</a>
+                  <a href="#">{t.footer.privacyPolicy}</a>
                   <span>•</span>
-                  <a href="#">Términos de Uso</a>
+                  <a href="#">{t.footer.termsOfUse}</a>
                   <span>•</span>
-                  <a href="#">Cookies</a>
+                  <a href="#">{t.footer.cookies}</a>
                 </div>
               </div>
               
               <div className="footer-actions">
                 <button className="scroll-to-top" onClick={() => scrollToSection('home')}>
                   <i className="fas fa-rocket"></i>
-                  <span>Volver Arriba</span>
+                  <span>{t.footer.backToTop}</span>
                 </button>
               </div>
             </div>
@@ -686,11 +703,11 @@ function App() {
                   <div key={i} className={`music-bar bar-${i + 1}`}></div>
                 ))}
               </div>
-              <span>Hecho con</span>
+              <span>{t.footer.madeWith}</span>
               <i className="fas fa-heart heart-beat"></i>
-              <span>y mucha</span>
+              <span>{t.footer.and}</span>
               <i className="fas fa-music music-note"></i>
-              <span>por Jonathan Pérez</span>
+              <span>{t.footer.by}</span>
               <div className="music-bars">
                 {[...Array(5)].map((_, i) => (
                   <div key={i} className={`music-bar bar-${i + 1}`}></div>
