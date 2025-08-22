@@ -48,7 +48,7 @@ function App() {
         <div className="nav-container">
           <div className="logo">
             <a href="#home" onClick={() => scrollToSection('home')}>
-              <img src="/jp.png" alt="Jonathan Pérez" className="logo-image" />
+              <img src={`${process.env.PUBLIC_URL}/jp.png`} alt="Jonathan Pérez" className="logo-image" />
             </a>
           </div>
           <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
@@ -89,7 +89,7 @@ function App() {
           <div className="particles"></div>
         </div>
         <div className="hero-content">
-          <img src="/Diseño sin título3.png" alt="Jonathan Pérez" className="hero-logo-image" />
+          <img src={`${process.env.PUBLIC_URL}/Diseño sin título3.png`} alt="Jonathan Pérez" className="hero-logo-image" />
           <p className="hero-subtitle">{t.hero.subtitle}</p>
           <div className="hero-cta">
             <a href="#music" className="btn btn-primary" onClick={() => scrollToSection('music')}>{t.hero.listenMusic}</a>
@@ -158,7 +158,7 @@ function App() {
           <div className="about-grid">
             <div className="about-image-container">
               <div className="about-image">
-                <img src="/jona1.jpg" alt="Jonathan Pérez" className="about-photo" />
+                <img src={`${process.env.PUBLIC_URL}/jona1.jpg`} alt="Jonathan Pérez" className="about-photo" />
               </div>
               <div className="about-quote">
                 <blockquote>
@@ -516,7 +516,7 @@ function App() {
           <div className="container">
             <div className="footer-hero-content">
               <div className="footer-brand">
-                <img src="/WhatsApp Image 2025-06-06 at 23.21.22_6dafd632.jpg" alt="Jonathan Pérez" className="footer-logo-img" />
+                <img src={`${process.env.PUBLIC_URL}/WhatsApp Image 2025-06-06 at 23.21.22_6dafd632.jpg`} alt="Jonathan Pérez" className="footer-logo-img" />
                 <h2 className="footer-title">Jonathan Pérez</h2>
                 <p className="footer-tagline">{t.footer.tagline}</p>
                 <p className="footer-description">
