@@ -142,8 +142,8 @@ img {
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px 0;
-  width: 90%;
+  padding: 0px 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -583,7 +583,7 @@ img {
 }
 
 .streaming-platforms {
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 .streaming-platforms h4 {
@@ -605,12 +605,13 @@ img {
   border-radius: 30px;
   transition: var(--transition);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-  color: #fff;
+  gap: 15px;
+  color: #000;
 }
 
 .streaming-link svg {
   margin-right: 10px;
-  font-size: 1.2rem;
+  font-size: 1.rem;
 }
 
 .streaming-link:hover {

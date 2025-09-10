@@ -48,7 +48,7 @@ function App() {
         <div className="nav-container">
           <div className="logo">
             <a href="#home" onClick={() => scrollToSection('home')}>
-              <img src={`${process.env.PUBLIC_URL}/jp.png`} alt="Jonathan Pérez" className="logo-image" />
+              <img src={`${process.env.PUBLIC_URL}/logo rojo.png`} alt="Jonathan Pérez" className="logo-image" />
             </a>
           </div>
           <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
@@ -119,7 +119,7 @@ function App() {
               <div className="streaming-platforms">
                 <h4>{t.music.availableSoon}</h4>
                 <div className="streaming-links">
-                  <a href="#" className="streaming-link">
+                  <a href="https://open.spotify.com/user/31r6ak4edu5t2yrzj7wtzaifvcdm?si=b3896f6e987d4e0e" target="_blank" className="streaming-link">
                     <i className="fab fa-spotify"></i>
                     Spotify
                   </a>
@@ -127,7 +127,7 @@ function App() {
                     <i className="fab fa-apple"></i>
                     Apple Music
                   </a>
-                  <a href="#" className="streaming-link">
+                  <a href="https://www.youtube.com/@JonathanP%C3%A9rez-uy" target="_blank" className="streaming-link">
                     <i className="fab fa-youtube"></i>
                     YouTube
                   </a>
@@ -181,7 +181,7 @@ function App() {
                   <div className="skill-info">
                     <h5>{t.about.guitar}</h5>
                     <div className="skill-bar">
-                      <div className="skill-level" style={{width: '95%'}}></div>
+                      <div className="skill-level" style={{width: '80%'}}></div>
                     </div>
                   </div>
                 </div>
@@ -193,7 +193,7 @@ function App() {
                   <div className="skill-info">
                     <h5>{t.about.vocal}</h5>
                     <div className="skill-bar">
-                      <div className="skill-level" style={{width: '90%'}}></div>
+                      <div className="skill-level" style={{width: '93%'}}></div>
                     </div>
                   </div>
                 </div>
@@ -205,7 +205,7 @@ function App() {
                   <div className="skill-info">
                     <h5>{t.about.composition}</h5>
                     <div className="skill-bar">
-                      <div className="skill-level" style={{width: '88%'}}></div>
+                      <div className="skill-level" style={{width: '96%'}}></div>
                     </div>
                   </div>
                 </div>
@@ -214,16 +214,16 @@ function App() {
               <div className="signature">- Jonathan</div>
               
               <div className="social-links">
-                <a href="#" className="social-link">
+                <a href="https://www.instagram.com/jonathan_perez018/" target="_blank" className="social-link">
                   <i className="fab fa-instagram"></i>
                 </a>
-                <a href="#" className="social-link">
-                  <i className="fab fa-facebook"></i>
+                <a href="https://www.tiktok.com/@jonaperez11" target="_blank" className="social-link">
+                  <i className="fab fa-tiktok"></i>
                 </a>
-                <a href="#" className="social-link">
+                <a href="https://x.com/Jonatha88199578" target="_blank" className="social-link">
                   <i className="fab fa-twitter"></i>
                 </a>
-                <a href="#" className="social-link">
+                <a href="https://www.youtube.com/@JonathanP%C3%A9rez-uy" target="_blank" className="social-link">
                   <i className="fab fa-youtube"></i>
                 </a>
               </div>
@@ -429,22 +429,19 @@ function App() {
                 </div>
               </div>
               
-              <div className="social-links-contact">
-                <h4>{t.contact.followMe}</h4>
-                <div className="social-icons">
-                  <a href="#" className="social-icon">
-                    <i className="fab fa-instagram"></i>
-                  </a>
-                  <a href="#" className="social-icon">
-                    <i className="fab fa-facebook"></i>
-                  </a>
-                  <a href="#" className="social-icon">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                  <a href="#" className="social-icon">
-                    <i className="fab fa-youtube"></i>
-                  </a>
-                </div>
+              <div className="social-links">
+                <a href="https://www.instagram.com/jonathan_perez018/" target="_blank" className="social-link">
+                  <i className="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@jonaperez11" target="_blank" className="social-link">
+                  <i className="fab fa-tiktok"></i>
+                </a>
+                <a href="https://x.com/Jonatha88199578" target="_blank" className="social-link">
+                  <i className="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.youtube.com/@JonathanP%C3%A9rez-uy" target="_blank" className="social-link">
+                  <i className="fab fa-youtube"></i>
+                </a>
               </div>
             </div>
             
@@ -580,27 +577,27 @@ function App() {
                   {t.footer.socialNetworks}
                 </h3>
                 <div className="epic-social-grid">
-                  <a href="#" className="epic-social-link instagram">
+                  <a href="https://www.instagram.com/jonathan_perez018/" target="_blank" className="epic-social-link instagram">
                     <i className="fab fa-instagram"></i>
                     <div className="social-overlay"></div>
                   </a>
-                  <a href="#" className="epic-social-link facebook">
+                  <a href="https://x.com/Jonatha88199578" target="_blank" className="epic-social-link facebook">
                     <i className="fab fa-twitter"></i>
                     <div className="social-overlay"></div>
                   </a>
-                  <a href="#" className="epic-social-link youtube">
+                  <a href="https://www.youtube.com/@JonathanP%C3%A9rez-uy" target="_blank" className="epic-social-link youtube">
                     <i className="fab fa-youtube"></i>
                     <div className="social-overlay"></div>
                   </a>
-                  <a href="#" className="epic-social-link tiktok">
+                  <a href="https://www.tiktok.com/@jonaperez11" target="_blank" className="epic-social-link tiktok">
                     <i className="fab fa-tiktok"></i>
                     <div className="social-overlay"></div>
                   </a>
-                  <a href="#" className="epic-social-link pinterest">
+                  <a href="https://es.pinterest.com/JonathanPerez102/" target="_blank" className="epic-social-link pinterest">
                     <i className="fab fa-pinterest"></i>
                     <div className="social-overlay"></div>
                   </a>
-                  <a href="#" className="epic-social-link linkedin">
+                  <a href="https://www.linkedin.com/in/jonathanperez-dev/" target="_blank" className="epic-social-link linkedin">
                     <i className="fab fa-linkedin"></i>
                     <div className="social-overlay"></div>
                   </a>
@@ -649,7 +646,7 @@ function App() {
                   {t.footer.streaming}
                 </h3>
                 <div className="streaming-platforms-footer">
-                  <a href="#" className="streaming-item">
+                  <a href="https://open.spotify.com/user/31r6ak4edu5t2yrzj7wtzaifvcdm?si=94d046ec4a484555" target="_blank" className="streaming-item">
                     <i className="fab fa-spotify"></i>
                     <span>Spotify</span>
                   </a>
@@ -657,11 +654,11 @@ function App() {
                     <i className="fab fa-apple"></i>
                     <span>Apple Music</span>
                   </a>
-                  <a href="#" className="streaming-item">
+                  <a href="https://www.youtube.com/@JonathanP%C3%A9rez-uy" target="_blank" className="streaming-item">
                     <i className="fab fa-youtube"></i>
                     <span>YouTube Music</span>
                   </a>
-                  <a href="#" className="streaming-item">
+                  <a href="https://soundcloud.com/jonathan-perez-801580107" target="_blank" className="streaming-item">
                     <i className="fab fa-soundcloud"></i>
                     <span>SoundCloud</span>
                   </a>
